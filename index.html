@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sliding Puzzle Game</title>
+  <link rel="stylesheet" href="styles11.css" />
+</head>
+<body class="level-1 light-mode">
+  <!-- User form modal -->
+  <div class="modal" id="user-modal">
+    <div class="modal-content">
+      <h2>Enter your details</h2>
+      <form id="user-form">
+        <input type="text" id="user-name" placeholder="Name" required>
+        <input type="tel" id="user-phone" placeholder="Phone Number" required pattern="[0-9]{10,}">
+        <button type="submit">Start Game</button>
+      </form>
+    </div>
+  </div>
+  <div class="container" id="game-container" style="display: none;">
+    <h1>Sliding Puzzle Game</h1>
+    <div class="user-info" id="user-info"></div>
+    <div class="stats">
+      <span id="move-counter">Moves: 0</span>
+      <span id="undo-counter" style="margin-left: 20px;">Undos: 0</span>
+    </div>
+    <div class="timer" id="timer" style="display:none;">Time: 0s</div>
+    <div class="actions actions-top">
+      <button id="share-button">Share Result</button>
+      <label class="switch">
+        <input type="checkbox" id="toggle-mode">
+        <span class="slider"></span>
+      </label>
+      <label class="img-upload-label">
+        <input type="file" accept="image/*" id="img-upload" style="display:none;">
+        <span id="img-btn">🖼️ Image Puzzle</span>
+      </label>
+    </div>
+    <div class="puzzle-container" id="puzzle-container"></div>
+    <!-- New button arrangement below puzzle -->
+    <div class="actions actions-bottom">
+      <button id="undo-button" class="left-btn">Undo</button>
+      <button id="shuffle-button" class="center-btn">Shuffle</button>
+      <button id="reset-button" class="right-btn">Reset</button>
+    </div>
+    <!-- Overlays -->
+    <div class="overlay-center" id="letsgo-overlay">
+      <span>Let's Go!</span>
+    </div>
+    <div class="overlay-center" id="win-overlay">
+      <span>WIN</span>
+      <button id="nextlevel-btn" style="display:none;">Next Level</button>
+    </div>
+    <div class="overlay-center" id="loading-overlay">
+      <div class="loading-text">Loading</div>
+      <div class="loading-bar-outer">
+        <div class="loading-bar-inner" id="loading-bar-inner"></div>
+      </div>
+    </div>
+    <canvas id="confetti-canvas"></canvas>
+    <audio id="move-sound" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124bfa8b89.mp3"></audio>
+    <audio id="win-sound" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124bfa8b89.mp3"></audio>
+  </div>
+  <script src="script11.js"></script>
+</body>
+</html>
